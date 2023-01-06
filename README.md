@@ -12,26 +12,6 @@ artists(id: integer, name: string, genre_id: integer, birthdate: date, contry: s
 ### Script criação das tabelas
 
 ```sql
-CREATE TABLE genres (
-  id             INTEGER     NOT NULL,
-  name           VARCHAR(50) NOT NULL,
-  PRIMARY KEY(id)
-);
-
-CREATE TABLE artists (
-  id             INTEGER      NOT NULL,
-  name           VARCHAR(100) NOT NULL,
-  genre_id       INTEGER,
-  birthdate      DATE,
-  country        VARCHAR(30),	
-  PRIMARY KEY(id),
-  FOREIGN KEY(genre_id) REFERENCES genres(id)
-);
-```
-
-### Seeding do banco de dados
-
-```sql
 
 CREATE TABLE genres(
 	id INTEGER NOT NULL,
@@ -48,6 +28,12 @@ CREATE TABLE artists(
 	PRIMARY KEY(id),
 	FOREIGN KEY(genre_id) REFERENCES genres(id)
 );
+
+```
+
+### Seeding do banco de dados
+
+```sql
 
 INSERT INTO genres(id,name) VALUES(1, 'Pop');
 INSERT INTO genres(id,name) VALUES(2, 'Rock');
